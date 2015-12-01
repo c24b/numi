@@ -22,10 +22,9 @@ def write_csv(filename, line):
         spamwriter.writerow(line)
     return
 
-def extract_links(url):
+def extract_links(html):
     '''fonction qui extrait simplement les liens de la page'''
-    print url
-    html = download(url)
+    
     liens = []
     soup = BeautifulSoup(html)
     tag_link_list = soup.find_all("a")
@@ -44,33 +43,7 @@ def extract_links(url):
 print "Exemple0: Extraire simplement les urls de la page"
 
 url_de_depart='http://www.bbc.com/news/science_and_environment'
-liens0 = extract_links(url_de_depart)
+html = download(url_de_depart)
+liens0 = extract_links(html)
 print "Il y a %i urls sur la page %s" %(len(liens0), url_de_depart)
 write_csv("test0.csv",liens0)
-#Exemple1:
-#Extraire simplement les urls d'une page de votre choix
-#**********************************#
-print "Exemple1: Extraire simplement les urls de la page de mon choix"
-url_au_choix="#entrez ici l'url de votre choix"
-liens0 = extract_links(url_au_choix)
-write_csv("test1.csv",liens0)
-print "Il y a %i urls sur la page %s" %(len(liens0), url_de_depart)
-
-
-#Exemple 3:
-#Extraire toutes les images des videos de la page BBC news
-#**********************************#
-print "Exemple2: Extraire simplement les urls de la page de mon choix"
-html = download(url_de_depart)
-images = extract_images(html)
-print "Il y a %i images sur la page %s" %(len(images), url_de_depart)
-write_csv("test2.csv",liens)
-
-#Exemple 3
-#Extraire les informations de la page http://genius.com/Ab-soul-terrorist-threats-lyrics
-print "Exemple3: Extraire simplement les urls de la page de mon choix"
-html = download("http://genius.com/Ab-soul-terrorist-threats-lyrics")
-line = extract_data(html)
-write_csv("test3.csv", line)
-
-
