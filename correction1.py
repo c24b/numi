@@ -77,8 +77,7 @@ print "Exemple4: L artiste de mon choix:"
 url_index = "http://genius.com/artists-index/a"
 html = download(url_index)
 listes_artist = extract_artistes_list(html)
-for artist in listes_artist:
-    
+for artist in listes_artist:    
     html = download(artist)
     liste_chansons = extract_chansons_list(html)
     for chanson in liste_chansons:
@@ -87,7 +86,4 @@ for artist in listes_artist:
         chanson = extract_chanson(html)
         print chanson
         write_csv("chansons_A.csv", chanson)
-    break
-#line = extract_chansons_list(html)
-#line = extract_chanson(html)
-#print line
+    
