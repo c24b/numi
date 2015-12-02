@@ -43,11 +43,13 @@ def extract_chanson(html):
     en utilisant les fonctions de Beautiful Soup
     '''
     soup = BeautifulSoup(html)    
+    
     texte = ""
     titre = ""
     tags = ""
     auteur = ""
-    return [titre, texte, tags, auteur] 
+    #on utilise encode pour permettre d'écrire les accents
+    return [titre.encode("utf-8"), texte.encode("utf-8"), tags.encode("utf-8"), auteur.encode("utf-8")] 
     
 ###################################################################"
 ### c'est ici que l'on execute notre programme
