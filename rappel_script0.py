@@ -48,6 +48,6 @@ def extract_chanson(html):
 print "Exemple3: Extraire une chanson"
 url_d_example = "http://genius.com/Ab-soul-terrorist-threats-lyrics"
 html = download(url_d_example)
-chanson = extract_chanson(chanson)
+chanson = extract_chanson(html)
 print chanson
 write_csv("chansons.csv",chanson)
