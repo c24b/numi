@@ -24,7 +24,7 @@ def write_csv(filename, line):
 
 def extract_links(url):
     '''fonction qui extrait simplement les liens de la page'''
-    print url
+    #print url
     html = download(url)
     liens = []
     soup = BeautifulSoup(html)
@@ -42,17 +42,11 @@ def extract_chanson(html):
     l'auteur
     en utilisant les fonctions de Beautiful Soup
     '''
-    soup = BeautifulSoup(html)
-    
-    texte = #
-    titre = #
-    tags = #
-    auteur = #
-    #Attention les tags sont une liste et comme nous allons  ecrire dans un fichier csv
-    #il faut applatir les données des tags qui sont une liste
-    #avec la methode join qui transforme une liste d'element en une chaine de caractère
-    #nous allons delimiter les tags entre eux par ***
-    tags = tags.join("***")
+    soup = BeautifulSoup(html)    
+    texte = ""
+    titre = ""
+    tags = ""
+    auteur = ""
     return [titre, texte, tags, auteur] 
     
 ###################################################################"
@@ -65,6 +59,6 @@ def extract_chanson(html):
 print "Exemple3: Extraire une chanson"
 url_d_example = "http://genius.com/Ab-soul-terrorist-threats-lyrics"
 html = download(url_d_example)
-chanson = extract_images(chanson)
+chanson = extract_chanson(chanson)
 print chanson
 write_csv("chansons.csv",chanson)
